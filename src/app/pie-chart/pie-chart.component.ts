@@ -12,7 +12,7 @@ import * as d3Shape from 'd3-shape';
 })
 export class PieChartComponent implements OnInit {
 
-  title = 'D3 Pie Chart in Angular 10';
+  title = 'Prueba de Gráficos - SoftParking';
 
   margin = {top: 20, right: 20, bottom: 30, left: 50};
   width: number;
