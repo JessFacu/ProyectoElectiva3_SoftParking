@@ -92,9 +92,9 @@ export class TestChartComponent implements OnInit {
         .attr('width', 100)
         .attr('height', 150)
         .attr('stroke', 'white')
-      g.append('text').attr('transform', (d: any) => 'translate(' + this.labelArc.centroid(d) + ')')
-        .attr('dy', '.35em')
-        .text((d: any) => d.data.estado);
+     // g.append('text').attr('transform', (d: any) => 'translate(' + this.labelArc.centroid(d) + ')')
+      //  .attr('dy', '.35em')
+       // .text((d: any) => d.estado);
     
   }
   /*
