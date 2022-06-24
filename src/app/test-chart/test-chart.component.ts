@@ -13,6 +13,8 @@ import * as d3Axis from 'd3-axis';
   styleUrls: ['./test-chart.component.css']
 })
 export class TestChartComponent implements OnInit {
+  /*Para poder acceder al objeto obtenido se debe de especificarlo dentro de la calse*/
+  statsEspacios= StatsEspacios;
   currentRate = 8;
   title = 'TESTTT';
   id: any;
