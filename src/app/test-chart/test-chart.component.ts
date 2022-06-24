@@ -31,6 +31,7 @@ export class TestChartComponent implements OnInit {
   svg: any;
   x: any;
   y: any;
+  dato: any;
   ycolUno = 50;
   ycolDos = 250;
   ycolTres = 450;
@@ -75,15 +76,16 @@ export class TestChartComponent implements OnInit {
         .style('background', '#dff0d8')
     
     this.g = this.svg.append('g');
- 
+
   }
 
   drawParking() {
+    
     const g = this.g.selectAll('svg')
       .data(StatsEspacios)
       .enter()
       .append('rect')
-        .attr("id", (d: { id: any; }) => d.id)
+        .attr('id', (d: { id: any; }) => d.id)
         .attr('x',(d: { x: any; }) => d.x)
         .attr('y',(d: { y: any; }) => d.y)
         .attr('fill',(d: { color: any; }) => d.color)
@@ -91,8 +93,7 @@ export class TestChartComponent implements OnInit {
         .attr('height', 150)
         .attr('stroke', 'white')
       g.append('text').attr('transform', (d: any) => 'translate(' + this.labelArc.centroid(d) + ')')
-        .attr('dy', '.35em')
-        .text((d: any) => d.data.estado);
+        .text((d: any) => d.estado);
     
   }
   /*
