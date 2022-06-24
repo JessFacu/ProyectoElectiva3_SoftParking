@@ -1,0 +1,16 @@
+
+<!--h2 >{{ title }}</h2>
+<div id="testChart" style="position: relative; height:60vh; width:120vw"></div-->
+
+<div id="svghandle" class="someclass"  style="position: relative; height:60vh; width:120vw">
+    <h2>Mi estacionamiento!</h2>
+</div>
+
+
+<h1 ng-repeat="id in StatsEspacios">{{id}}</h1>
+
+<select name="posicion" ng-options="id for id in StatsEspacios">
+    <option value="value1">{{id}}</option>
+    <option value="value2" selected>{{color}}</option>
+    <option value="value3">Value 3</option>
+</select>

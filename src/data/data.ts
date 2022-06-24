@@ -14,12 +14,56 @@ export interface Employee {
 }
 
 export const StatsBarChart: Employee[] = [
-  {company: 'Apple', frequency: 100000},
-  {company: 'IBM', frequency: 80000},
-  {company: 'HP', frequency: 20000},
-  {company: 'Facebook', frequency: 70000},
-  {company: 'TCS', frequency: 12000},
-  {company: 'Google', frequency: 110000},
+  {company: 'Apple', frequency: 20000},
+  {company: 'IBM', frequency: 45000},
+  {company: 'HP', frequency: 5000},
+  {company: 'Facebook', frequency: 5000},
+  {company: 'TCS', frequency: 5000},
+  {company: 'Google', frequency: 5000},
   {company: 'Wipro', frequency: 5000},
-  {company: 'EMC', frequency: 4000}
+  {company: 'EMC', frequency: 5000}
+];
+
+
+export interface Espacios {
+  id: number;
+  color: string;
+  estado: string;
+  columna: number;
+  x: number;
+  y: number;
+}
+
+
+export const StatsEspacios: Espacios[] = [
+  {id: 1,color: 'green',estado: 'LIBRE',columna: 1, x: 50 , y: 50},
+  {id: 2,color: 'green',estado: 'LIBRE',columna: 1, x: 150, y: 50},
+  {id: 3,color: 'green',estado: 'LIBRE',columna: 1, x: 250, y: 50},
+  {id: 4,color: 'green',estado: 'LIBRE',columna: 1, x: 350, y: 50},
+  {id: 5,color: 'green',estado: 'LIBRE',columna: 1, x: 450, y: 50},
+  {id: 6,color: 'green',estado: 'LIBRE',columna: 1, x: 600, y: 50},
+  {id: 7,color: 'green',estado: 'LIBRE',columna: 1, x: 700, y: 50},
+  {id: 8,color: 'green',estado: 'LIBRE',columna: 1, x: 800, y: 50},
+  {id: 9,color: 'green',estado: 'LIBRE',columna: 1, x: 900, y: 50},
+  {id: 10,color: 'green',estado: 'LIBRE',columna: 1, x: 1000, y: 50},
+  {id: 11,color: 'green',estado: 'LIBRE',columna: 2, x: 50, y: 250},
+  {id: 12,color: 'green',estado: 'LIBRE',columna: 2, x: 150, y: 250},
+  {id: 13,color: 'green',estado: 'LIBRE',columna: 2, x: 250, y: 250},
+  {id: 14,color: 'green',estado: 'LIBRE',columna: 2, x: 350, y: 250},
+  {id: 15,color: 'green',estado: 'LIBRE',columna: 2, x:450, y: 250},
+  {id: 16,color: 'green',estado: 'LIBRE',columna: 2, x:600, y: 250},
+  {id: 17,color: 'green',estado: 'LIBRE',columna: 2, x:700, y: 250},
+  {id: 18,color: 'green',estado: 'LIBRE',columna: 2, x:800, y: 250},
+  {id: 19,color: 'green',estado: 'LIBRE',columna: 2, x:900, y: 250},
+  {id: 20,color: 'green',estado: 'LIBRE',columna: 2, x:1000, y: 250},
+  {id: 21,color: 'green',estado: 'LIBRE',columna: 3, x:50, y: 450},
+  {id: 22,color: 'green',estado: 'LIBRE',columna: 3, x:150, y: 450},
+  {id: 23,color: 'green',estado: 'LIBRE',columna: 3, x:250, y: 450},
+  {id: 24,color: 'green',estado: 'LIBRE',columna: 3, x:350, y: 450},
+  {id: 25,color: 'green',estado: 'LIBRE',columna: 3, x:450, y: 450},
+  {id: 26,color: 'green',estado: 'LIBRE',columna: 3, x:600, y: 450},
+  {id: 27,color: 'green',estado: 'LIBRE',columna: 3, x:700, y: 450},
+  {id: 28,color: 'green',estado: 'LIBRE',columna: 3, x:800, y: 450},
+  {id: 29,color: 'red',estado: 'OCUPADO',columna: 3, x:900, y: 450},
+  {id: 30,color: 'red',estado: 'OCUPADO',columna: 3,x:1000, y: 450}
 ];

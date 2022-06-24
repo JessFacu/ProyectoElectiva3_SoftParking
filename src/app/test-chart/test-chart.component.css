@@ -1,0 +1,30 @@
+
+@import url("http://polymaps.org/style.css");
+
+	html, body {
+		height: 100%;
+		background: #E6E6E6;
+		margin: 0;
+		font: 10px sans-serif;
+	}
+	
+	svg {
+		display: block;
+	}
+	
+	#map {
+		width: 960px;
+		height: 500px;
+	}
+	
+	.layer circle {
+		fill: steelblue;
+		fill-opacity: .8;
+		stroke: white;
+	}
+	
+	circle.garage-circle {
+		fill-opacity: .5;
+		stroke: white;
+		
+	}
