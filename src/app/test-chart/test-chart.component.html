@@ -22,7 +22,7 @@
   <div class="modal-body">
     <div name="posicion">
       Sección:
-      <select [(ngModel)]="seccion" required>
+      <select required>
         <!--Ng-option es una opcion del angularjs estamso utilizando una angular mucho mas nuevo-->
         <option >Elija una sección</option>
         <option *ngFor="let secciones of secciones" >{{secciones}}</option>
@@ -30,7 +30,7 @@
     </div>
     <div name="posicion">
       Posición:
-      <select [(ngModel)]="posicion" required>
+      <select required>
         <!--Ng-option es una opcion del angularjs estamso utilizando una angular mucho mas nuevo-->
         <option >Elija una posición</option>
         <option *ngFor="let statsEspacio of statsEspacios">{{statsEspacio.id}}</option>
@@ -38,7 +38,7 @@
     </div>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click'); onAddProperty()">Ok</button>
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
   </div>
 </ng-template>
 

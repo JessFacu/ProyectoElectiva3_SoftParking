@@ -112,17 +112,6 @@ export class TestChartComponent implements OnInit {
     console.log("secciones = "+ this.secciones);
      
   }
-  
-  export class MailtypeComponent {
-    model : Mailtype;
-    constructor() {
-      this.model = new Mailtype('','','',[]);
-      this.model.properties.push(new Property());
-    }
-  
-    onAddProperty() {
-      this.model.properties.push(new Property());
-    }
-  }
+
 }
 
