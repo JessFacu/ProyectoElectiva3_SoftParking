@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StatsEspacios } from '../../data/data';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 import * as d3 from 'd3-selection';
 import * as d3Scale from 'd3-scale';
@@ -19,9 +20,6 @@ export class TestChartComponent implements OnInit {
   title = 'TESTTT';
   id: any;
   margin = {top: 20, right: 20, bottom: 30, left: 50};
-  width: number;
-  height: number;
-  radius: number;
   g: any;
   arc: any;
   labelArc: any;
@@ -35,39 +33,18 @@ export class TestChartComponent implements OnInit {
   ycolUno = 50;
   ycolDos = 250;
   ycolTres = 450;
-
-  constructor() {
-    this.width = 900 - this.margin.left - this.margin.right ;
-    this.height = 500 - this.margin.top - this.margin.bottom;
-    this.radius = Math.min(this.width, this.height) / 2;
-  }
-
+  secciones: any;
+  
   ngOnInit() {
     this.initSvg();
-    //this.drawPie();
-    //this.drawBars();
-   // this.colUno();
-    //this.colDos();
-    //this.colTres();
     this.drawParking();
+    this.condiciones();
 
   }
 
   initSvg() {
     this.color = d3Scale.scaleOrdinal()
       .range(['#FFA500', '#00FF00', '#FF0000', '#6b486b', '#FF00FF', '#d0743c', '#00FA9A']);
-
-    this.arc = d3Shape.arc()
-      .outerRadius(this.radius - 10)
-      .innerRadius(0);
-
-    this.labelArc = d3Shape.arc()
-      .outerRadius(this.radius - 40)
-      .innerRadius(this.radius - 40);
-
-    this.labelPer = d3Shape.arc()
-      .outerRadius(this.radius - 80)
-      .innerRadius(this.radius - 80);
 
     this.svg = d3.select('#svghandle')
       .append('svg')
@@ -101,6 +78,51 @@ export class TestChartComponent implements OnInit {
         //        .text((d: any) => d.estado)
     
   }
- 
+
+  //CONFIGURACION PARA EL MODAL
+  closeResult: string | undefined;
+  constructor(private modalService: NgbModal) {}
+    
+  open(content: any) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+  
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
+  }
+
+  public condiciones(){
+     
+    this.secciones = [];
+    for (let i in this.statsEspacios) {
+      if (this.secciones.includes(this.statsEspacios[i].columna) === false) {
+          this.secciones.push(this.statsEspacios[i].columna);
+      }
+    }
+    console.log("secciones = "+ this.secciones);
+     
+  }
+  
+  export class MailtypeComponent {
+    model : Mailtype;
+    constructor() {
+      this.model = new Mailtype('','','',[]);
+      this.model.properties.push(new Property());
+    }
+  
+    onAddProperty() {
+      this.model.properties.push(new Property());
+    }
+  }
 }
 
