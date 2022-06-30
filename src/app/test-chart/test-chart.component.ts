@@ -63,7 +63,7 @@ export class TestChartComponent implements OnInit {
   drawParking() {
     
     const g = this.g.selectAll('svg')
-      .data(StatsEspacios)
+      .data(this.statsEspacios)
       .enter()
       .append('rect')
         .attr('id', (d: { id: any; }) => d.id)
@@ -133,7 +133,7 @@ export class TestChartComponent implements OnInit {
   public lugaresXseccion(a: any | undefined) {
     this.posiciones = [];
     for (let i in this.statsEspacios) {
-      if ((this.statsEspacios[i].columna) === a) {
+      if (((this.statsEspacios[i].columna) === a)&&((this.statsEspacios[i].estado)=== "LIBRE")) {
           this.posiciones.push(this.statsEspacios[i].id);
       }
     }
