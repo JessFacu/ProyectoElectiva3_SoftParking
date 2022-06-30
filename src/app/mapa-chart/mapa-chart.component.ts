@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StatsEspacios } from '../../data/data';
+import { StatsEspacios,TablaCli,TablaMov } from '../../data/data';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 import * as d3 from 'd3-selection';
@@ -7,6 +7,7 @@ import * as d3Scale from 'd3-scale';
 import * as d3Shape from 'd3-shape';
 import * as d3Array from 'd3-array';
 import * as d3Axis from 'd3-axis';
+import { json } from 'd3';
 
 @Component({
   selector: 'app-mapa-chart',
@@ -16,6 +17,24 @@ import * as d3Axis from 'd3-axis';
 export class MapaChartComponent implements OnInit {
   /*Para poder acceder al objeto obtenido se debe de especificar dentro de la clase*/
   statsEspacios= StatsEspacios;
+  //tabla_movimiento
+  array_mov:any  = {seccion: "",
+                    posicion: "",
+                    id_estacionamiento: 0,
+                    id_cliente: 0,
+                    fhora_entrada: null,
+                    fhora_salida: null,
+                    forma_de_pago: "",
+                    monto_total: 0,
+                    estado_pago: "",
+                    id_tipo_cliente: 0,
+                    id_tipo_vehiculo: 0,
+                    nro_doc: "",
+                    chapa: "",
+                    tarifa: 0,
+                    descuento_aplicado: 0};
+
+  tabla_cliente = TablaCli;
   //definicion de variables
   currentRate = 8;
   title = 'Mapa';
@@ -38,6 +57,7 @@ export class MapaChartComponent implements OnInit {
   posiciones: any;
   seccion: String = "Elija una sección" ;
   posicion: String = "Elija una posición" ;
+
 
   ngOnInit() {
     this.initSvg();
@@ -178,7 +198,10 @@ export class MapaChartComponent implements OnInit {
         this.posicion = "Elija una posición" ;
       }
     }
-    
+  }
+
+  public setValueAsignar(cli:any| undefined){
+    console.log("Entre en setValueAsignar = " + cli.nro_doc + "--" + cli.chapa);
   }
 }
 

@@ -1,43 +1,73 @@
 <div class="container">
   <div>
-    <div id="svghandle" class="someclass"  style="position: relative; height:60vh; width:120vw">
-      <h2>Mi estacionamiento!</h2>
+    <br/>
+    <h2 style="text-align:center;">MAPA DEL ESTACIONAMIENTO</h2>
+    <div style="text-align:right;" style="width:container-fluid">
       <!--DAR DE ALTA-->
-      <button class="btn btn-lg btn-outline-primary" (click)="open(mymodal)" >Asignar lugar</button>
+      <button class="btn btn-lg m-1 btn-outline-dark" (click)="open(mymodal)" >Asignar lugar</button>
       <!--COBRAR-->
-      <button class="btn btn-lg btn-outline-primary" (click)="open(mymodal_pago)">Cobrar</button>
+      <button class="btn btn-lg m-1 btn-outline-dark" (click)="open(mymodal_pago)">Cobrar</button>
     </div>
+    <br/>
+    <!--LLAMAMOS AL GRAFICO-->
+    <div id="svghandle" class="someclass"  style="position: relative;width:container-fluid"></div>
   </div>
 </div>
 
-<!--MODAL PARA DAR DE ALTA-->
+<!--MODAL PARA ASIGNAR LUGAR-->
 <ng-template #mymodal let-modal>
+  <!--boton para cerrar el modal-->
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Registre el ingreso del vehiculo</h4>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">×</span>
+    <h4 class="modal-title" id="modal-basic-title" >Registre el ingreso del vehiculo</h4>
+    <button type="button" class="close btn btn-dark " aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">X</span>
     </button>
   </div>
   <div class="modal-body">
-    <div name="posicion">
-      Sección:
-      <select class="form-control" (change)="setValueSeccion(seccion)" [(ngModel)]="seccion" required>
-        <option>Elija una sección</option>
-        <option *ngFor="let secciones of secciones" [value]="secciones">{{secciones}}</option>
-      </select>
+    <!--DATOS DEL CLIENTE-->
+    <div id="indentificar_cliente" class="row">
+      <h6 id="title">Datos del cliente</h6>
+      <!--nro_documento-->
+      <div name="nro_doc" class="col">
+        Número de documento:
+        <input [(ngModel)]="array_mov.nro_doc" #ctrlName="ngModel" required>
+      </div>      
+      <!--identificar nrochapa-->
+      <div name="chapa" class="col">
+        Número de chapa:
+        <input [(ngModel)]="array_mov.chapa" #ctrlName="ngModel" required>
+      </div>
     </div>
-    <div name="posicion">
-      Posición:
-      <select class="form-control" (change)="setValuePosicion(posicion)" [(ngModel)]="posicion" required>
-        <option >Elija una posición</option>
-        <option *ngFor="let posiciones of posiciones" [value]="posiciones">{{posiciones}}</option>
-      </select>
+    <br/>
+    <!--DATOS DEL ESTACIONAMIENTO-->
+    <div id="ubicacion_estacionamiento" class="row">
+      <h6 id="title">Ubicación dentro del estacionamiento</h6>
+      <!--asignar seccion-->
+      <div name="seccion" class="col">
+        Sección:
+        <select class="form-control" (change)="setValueSeccion(seccion)" [(ngModel)]="seccion" required>
+          <option>Elija una sección</option>
+          <option *ngFor="let secciones of secciones" [value]="secciones">{{secciones}}</option>
+        </select>
+      </div>
+      
+      <!--asignar posicion-->
+      <div name="posicion" class="col">
+        Posición:
+        <select class="form-control" (change)="setValuePosicion(posicion)" [(ngModel)]="posicion" required>
+          <option >Elija una posición</option>
+          <option *ngFor="let posiciones of posiciones" [value]="posiciones">{{posiciones}}</option>
+        </select>
+      </div>
     </div>
   </div>
+  <!--CERRAR Y GUARDAR-->
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click');setEstacionamiento(posicion)">Ok</button>
+    <button type="button" class="btn btn-success m-1" (click)="modal.close('Save click');setEstacionamiento(posicion);setValueAsignar(array_mov)">Guardar</button>
   </div>
 </ng-template>
+
+
 <!--MODAL PARA COBRAR-->
 <ng-template #mymodal_pago let-modal>
   <div class="modal-header">

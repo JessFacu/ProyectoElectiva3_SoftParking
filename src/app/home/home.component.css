@@ -272,10 +272,6 @@ a {
     padding-top: 58px !important
 }
 
-.et_transparent_nav #main-content .container {
-    padding-top: 58px !important
-}
-
 #main-footer {
     display: none
 }
@@ -1827,4 +1823,10 @@ a, abbr, acronym, address, applet, b, big, blockquote, body, center, cite, code,
     z-index: 2;
     background-position: center;
     background-size: cover;
+}
+
+
+.container {
+    position: relative;
+    text-align: center
 }

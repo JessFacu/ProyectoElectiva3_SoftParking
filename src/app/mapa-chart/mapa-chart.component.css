@@ -28,3 +28,10 @@
 		stroke: white;
 		
 	}
+
+.modal-header{
+	background-color: #111e35;
+	font: 10px sans-serif;
+	color: #E6E6E6 !important;
+}
+	

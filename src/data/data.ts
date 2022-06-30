@@ -67,3 +67,42 @@ export const StatsEspacios: Espacios[] = [
   {id: 29,color: 'red',estado: 'OCUPADO',columna: 3, x:900, y: 450},
   {id: 30,color: 'red',estado: 'OCUPADO',columna: 3,x:1000, y: 450}
 ];
+
+export interface Cliente {
+  id_cliente: number;
+  id_empresa: string;
+  id_tipo_cliente: number;
+  nombre: string;
+  apellido: string;
+  nro_ci: string;
+  telefono: string;
+  createdAt: any;
+  updatedAt: any;
+}
+
+export const TablaCli: Cliente[] = [
+  
+]
+
+export interface Movimiento {
+  seccion: string;
+  posicion: string;
+	id_estacionamiento: number;
+	id_cliente: number;
+	fhora_entrada: any;
+	fhora_salida: any;
+	forma_de_pago: string;
+	monto_total: number;
+	estado_pago: string;
+  id_tipo_cliente: number;
+  id_tipo_vehiculo: number;
+  nro_doc:string;
+  chapa:string;
+  tarifa:number;
+  descuento_aplicado:number;
+}
+
+
+export const TablaMov: Movimiento[] = [
+  {seccion: "",  posicion: "",	id_estacionamiento: 0,id_cliente: 0,	fhora_entrada: null,fhora_salida: null,	forma_de_pago: "",monto_total: 0,	estado_pago: "",id_tipo_cliente: 0,  id_tipo_vehiculo: 0,nro_doc:"",  chapa: "",tarifa: 0,  descuento_aplicado: 0}
+]
