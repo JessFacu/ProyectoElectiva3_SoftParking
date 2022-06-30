@@ -144,5 +144,17 @@ export class TestChartComponent implements OnInit {
     this.posicion = b; 
     console.log(this.posicion); 
   }
+
+//PONER OCUPADO EL ESTACIONAMIENTO EN LA POSICION SELECCIONADA
+  public setEstacionamiento(b: any | undefined){
+    for (let i in this.statsEspacios) {
+      if (((this.statsEspacios[i].id) == b) && (b != undefined)){
+        this.statsEspacios[i].estado = "OCUPADO";
+        this.statsEspacios[i].color = "red";
+        this.drawParking();
+      }
+    }
+    
+  }
 }
 
