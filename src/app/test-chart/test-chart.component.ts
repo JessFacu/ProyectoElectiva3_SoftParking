@@ -152,6 +152,8 @@ export class TestChartComponent implements OnInit {
         this.statsEspacios[i].estado = "OCUPADO";
         this.statsEspacios[i].color = "red";
         this.drawParking();
+        this.seccion = "Elija una sección" ;
+        this.posicion = "Elija una posición" ;
       }
     }
     
