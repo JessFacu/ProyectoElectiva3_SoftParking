@@ -61,7 +61,7 @@ export class TestChartComponent implements OnInit {
   }
 
   drawParking() {
-    
+    //const g = svg;
     const g = this.g.selectAll('svg')
       .data(this.statsEspacios)
       .enter()
@@ -73,14 +73,32 @@ export class TestChartComponent implements OnInit {
         .attr('width', 100)
         .attr('height', 150)
         .attr('stroke', 'white');
-      g.append('text')
-        .attr('transform', 'rotate(-90)')
-        .attr('y', 6)
-        .attr('dy', '.71em')
-        .style('text-anchor', 'end')
-        .text((d: any) => d.estado)
-        //        .text((d: any) => d.estado)
+
     
+      this.g.selectAll('svg')
+        .data(this.statsEspacios)
+        .enter()
+        .append('text')
+        .attr('x',(d: { x: any; }) => d.x + 25)
+        .attr('y',(d: { y: any; }) => d.y + 70)
+        .text(((d: { id: any;}) => d.id))
+        .style("font-size", 45)
+        .style("font-family", "arial")
+        .style("fill", "black")
+        .style("align", "center")
+
+
+        this.g.selectAll('svg')
+        .data(this.statsEspacios)
+        .enter()
+        .append('text')
+        .attr('x',(d: { x: any; }) => d.x + 25)
+        .attr('y',(d: { y: any; }) => d.y + 100)
+        .text(((d: { estado: any; }) => d.estado))
+        .style("font-size", 14)
+        .style("font-family", "arial")
+        .style("fill", "white")
+        .style("align", "center")
   }
 
   //CONFIGURACION PARA EL MODAL
@@ -149,9 +167,12 @@ export class TestChartComponent implements OnInit {
   public setEstacionamiento(b: any | undefined){
     for (let i in this.statsEspacios) {
       if (((this.statsEspacios[i].id) == b) && (b != undefined)){
+        //modificar valores
         this.statsEspacios[i].estado = "OCUPADO";
         this.statsEspacios[i].color = "red";
+        //volver a dibujar
         this.drawParking();
+        //limpiar las variables
         this.seccion = "Elija una sección" ;
         this.posicion = "Elija una posición" ;
       }
