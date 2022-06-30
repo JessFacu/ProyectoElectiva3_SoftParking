@@ -1,17 +1,17 @@
 
-<div class="container">
+<div class="container" >
   <div>
     <div id="svghandle" class="someclass"  style="position: relative; height:60vh; width:120vw">
       <h2>Mi estacionamiento!</h2>
       <!--DAR DE ALTA-->
-      <button class="btn btn-lg btn-outline-primary" (click)="open(mymodal)">Registrar!</button>
+      <button class="btn btn-lg btn-outline-primary" (click)="open(mymodal)" >Registrar!</button>
       <!--COBRAR-->
       <button class="btn btn-lg btn-outline-primary" (click)="open(mymodal_pago)">Cobrar!</button>
     </div>
   </div>
-
 </div>
-   
+
+<!--MODAL PARA DAR DE ALTA-->
 <ng-template #mymodal let-modal>
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">Registre el ingreso del vehiculo</h4>
@@ -22,26 +22,24 @@
   <div class="modal-body">
     <div name="posicion">
       Sección:
-      <select required>
-        <!--Ng-option es una opcion del angularjs estamso utilizando una angular mucho mas nuevo-->
-        <option >Elija una sección</option>
-        <option *ngFor="let secciones of secciones" >{{secciones}}</option>
+      <select class="form-control" (change)="setValueSeccion(seccion)" [(ngModel)]="seccion" required>
+        <option>Elija una sección</option>
+        <option *ngFor="let secciones of secciones" [value]="secciones">{{secciones}}</option>
       </select>
     </div>
     <div name="posicion">
       Posición:
-      <select required>
-        <!--Ng-option es una opcion del angularjs estamso utilizando una angular mucho mas nuevo-->
+      <select class="form-control" (change)="setValuePosicion(posicion)" [(ngModel)]="posicion" required>
         <option >Elija una posición</option>
-        <option *ngFor="let statsEspacio of statsEspacios">{{statsEspacio.id}}</option>
+        <option *ngFor="let posiciones of posiciones" [value]="posiciones">{{posiciones}}</option>
       </select>
     </div>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click');setValueSeccion(seccion)">Ok</button>
   </div>
 </ng-template>
-
+<!--MODAL PARA COBRAR-->
 <ng-template #mymodal_pago let-modal>
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">Bootstrap Modal</h4>
@@ -56,3 +54,27 @@
     <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
   </div>
 </ng-template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--ejemplos-->
+
+<!-- OPCION 1 ANDA    
+  <div name="posicion">
+      Sección:
+      <select class="form-select" [(ngModel)]="seccion" #ctrlSeccion="ngModel" required>
+        <option >Elija una sección</option>
+        <option *ngFor="let secciones of secciones" [value]="secciones">{{secciones}}</option>
+      </select>
+    </div>-->

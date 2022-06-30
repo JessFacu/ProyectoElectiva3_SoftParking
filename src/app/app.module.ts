@@ -7,6 +7,7 @@ import { PieChartComponent } from './pie-chart/pie-chart.component';
 import { TestChartComponent } from './test-chart/test-chart.component';
 import {AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

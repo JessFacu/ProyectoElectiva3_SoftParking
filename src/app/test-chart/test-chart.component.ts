@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StatsEspacios } from '../../data/data';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-
+import {NgForm} from '@angular/forms';
 import * as d3 from 'd3-selection';
 import * as d3Scale from 'd3-scale';
 import * as d3Shape from 'd3-shape';
@@ -34,11 +34,15 @@ export class TestChartComponent implements OnInit {
   ycolDos = 250;
   ycolTres = 450;
   secciones: any;
-  
+  posiciones: any;
+  seccion: String = "Elija una sección" ;
+  posicion: String = "Elija una posición" ;
+
   ngOnInit() {
     this.initSvg();
     this.drawParking();
-    this.condiciones();
+    this.seccionesEstacionamiento();
+    //this.lugaresXseccion(undefined);
 
   }
 
@@ -100,8 +104,8 @@ export class TestChartComponent implements OnInit {
       return  `with: ${reason}`;
     }
   }
-
-  public condiciones(){
+// SECCION
+  public seccionesEstacionamiento(){
      
     this.secciones = [];
     for (let i in this.statsEspacios) {
@@ -113,5 +117,32 @@ export class TestChartComponent implements OnInit {
      
   }
 
+  
+  public setValueSeccion(a: any | undefined) { 
+    this.seccion = a; 
+    console.log(this.seccion); 
+    if((this.seccion != "Elija una sección")||(this.seccion != undefined)) {
+      const conv_a = Number(this.seccion);
+      this.lugaresXseccion(conv_a);
+    }
+    
+  }
+
+//POSICION
+
+  public lugaresXseccion(a: any | undefined) {
+    this.posiciones = [];
+    for (let i in this.statsEspacios) {
+      if ((this.statsEspacios[i].columna) === a) {
+          this.posiciones.push(this.statsEspacios[i].id);
+      }
+    }
+    console.log("posiciones = "+ this.posiciones);
+  }
+
+  public setValuePosicion(b: any | undefined) { 
+    this.posicion = b; 
+    console.log(this.posicion); 
+  }
 }
 
