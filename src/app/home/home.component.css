@@ -1830,3 +1830,12 @@ a, abbr, acronym, address, applet, b, big, blockquote, body, center, cite, code,
     position: relative;
     text-align: center
 }
+
+
+.nombreEmpresa{
+    text-align: center;
+	font: 85px sans-serif;
+	color: #E6E6E6 !important;
+	margin: relative;
+	padding: 25px;
+}

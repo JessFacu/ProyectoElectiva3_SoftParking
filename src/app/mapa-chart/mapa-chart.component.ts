@@ -8,6 +8,7 @@ import * as d3Shape from 'd3-shape';
 import * as d3Array from 'd3-array';
 import * as d3Axis from 'd3-axis';
 import { json } from 'd3';
+import { NumberSymbol } from '@angular/common';
 
 @Component({
   selector: 'app-mapa-chart',
@@ -17,6 +18,7 @@ import { json } from 'd3';
 export class MapaChartComponent implements OnInit {
   /*Para poder acceder al objeto obtenido se debe de especificar dentro de la clase*/
   statsEspacios= StatsEspacios;
+  esp_total = this.statsEspacios.length;
   //tabla_movimiento
   array_mov:any  = {seccion: "",
                     posicion: "",
@@ -57,13 +59,14 @@ export class MapaChartComponent implements OnInit {
   posiciones: any;
   seccion: String = "Elija una sección" ;
   posicion: String = "Elija una posición" ;
+  esp_disponible: number = 0;
+  esp_ocupado: number = 0 ;
 
-
-  ngOnInit() {
+  ngOnInit(): void {
     this.initSvg();
     this.drawParking();
     this.seccionesEstacionamiento();
-    //this.lugaresXseccion(undefined);
+    this.calcEspacios();
 
   }
 
@@ -202,6 +205,21 @@ export class MapaChartComponent implements OnInit {
 
   public setValueAsignar(cli:any| undefined){
     console.log("Entre en setValueAsignar = " + cli.nro_doc + "--" + cli.chapa);
+    this.calcEspacios();
+  }
+
+  public calcEspacios(){
+    //
+    let sum = 0;
+    
+    for (let i in this.statsEspacios) {
+      if (((this.statsEspacios[i].estado) === "OCUPADO")){
+          sum = sum + 1;
+      }
+    }
+    this.esp_ocupado = sum;
+    this.esp_disponible = this.esp_total - this.esp_ocupado;
+    console.log("Entre en calcEspacios = " + this.esp_ocupado + " - " + this.esp_disponible + " - " + this.esp_total);
   }
 }
 
