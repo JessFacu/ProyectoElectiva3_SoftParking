@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StatsPieChart } from '../../data/data';
+import { StatsMapaChart } from '../../data/data';
 
 //import * as d3 from 'd3-selection';
 //import * as d3Scale from 'd3-scale';

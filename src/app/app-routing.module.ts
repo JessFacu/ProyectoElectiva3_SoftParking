@@ -3,13 +3,14 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { BarChartComponent } from './bar-chart/bar-chart.component';
 import { PieChartComponent } from './pie-chart/pie-chart.component';
-import { TestChartComponent } from './test-chart/test-chart.component';
+import { MapaChartComponent } from './mapa-chart/mapa-chart.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  { path: '', component: BarChartComponent },
+  { path: '', component: HomeComponent },
   { path: 'barChart', component: BarChartComponent },
   { path: 'pieChart', component: PieChartComponent },
-  { path: 'testChart', component: TestChartComponent }
+  { path: 'mapaChart', component: MapaChartComponent }
 ];
 @NgModule({
   declarations: [],

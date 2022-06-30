@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StatsEspacios } from '../../data/data';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-import {NgForm} from '@angular/forms';
+
 import * as d3 from 'd3-selection';
 import * as d3Scale from 'd3-scale';
 import * as d3Shape from 'd3-shape';
@@ -9,15 +9,16 @@ import * as d3Array from 'd3-array';
 import * as d3Axis from 'd3-axis';
 
 @Component({
-  selector: 'app-test-chart',
-  templateUrl: './test-chart.component.html',
-  styleUrls: ['./test-chart.component.css']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class TestChartComponent implements OnInit {
-  /*Para poder acceder al objeto obtenido se debe de especificarlo dentro de la calse*/
+export class HomeComponent implements OnInit {
+  /*Para poder acceder al objeto obtenido se debe de especificar dentro de la clase*/
   statsEspacios= StatsEspacios;
+  //definicion de variables
   currentRate = 8;
-  title = 'TESTTT';
+  title = 'Mapa';
   id: any;
   margin = {top: 20, right: 20, bottom: 30, left: 50};
   g: any;
